@@ -105,7 +105,7 @@
 
     <!-- Slider/Intro Section Start -->
     <div class="intro-slider-wrap section" style="z-index:1;">
-        <div class="intro-section section overlay" data-bg-img="assets/img/hero-slider/base_hero.png">
+        <div class="intro-section section overlay" data-bg-img="assets/img/hero-slider/base_hero.png" id="herodiv">
 
         </div>
     </div>
@@ -227,6 +227,21 @@
 
   <!--=== Custom Js ===-->
   <script src="assets/js/custom.js"></script>
+
+  <script>
+    function myFunction(x) {
+      if (x.matches) { // If media query matches
+        document.getElementById("herodiv").style.backgroundImage = "url(\'assets/img/hero-slider/solo_hero.png\')";
+      } else {
+        document.getElementById("herodiv").style.backgroundImage = "url(\'assets/img/hero-slider/base_hero.png\')";
+        document.getElementById("herodiv").style.height = "700px";
+      }
+    }
+    
+    var x = window.matchMedia("(max-width: 600px)")
+    myFunction(x) // Call listener function at run time
+    x.addListener(myFunction) // Attach listener function on state changes
+    </script>
 
 </body>
 
